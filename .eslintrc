@@ -1,0 +1,40 @@
+{
+	"env": {
+		"commonjs": true,
+		"es2021": true,
+		"node": true,
+		"jest/globals": true
+	},
+	"plugins": ["jest"],
+	"extends": ["standard", "plugin:jest/recommended"],
+	"parserOptions": {
+		"ecmaVersion": 12
+	},
+	"rules": {
+		"max-len": [
+			2,
+			{
+				"code": 180,
+				"tabWidth": 2,
+				"ignoreUrls": true
+			}
+		],
+		"no-console": [
+			"error",
+			{
+				"allow": ["debug", "error", "info"]
+			}
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "next",
+				"ignoreRestSiblings": true
+			}
+		],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+		"no-throw-literal": ["warn"],
+		"semi": ["error", "always", { "omitLastInOneLineBlock": true }]
+	}
+}
