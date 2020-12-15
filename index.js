@@ -20,14 +20,14 @@ const myFormat = printf(({ level, message, label, timestamp, error, err, data, .
   );
 });
 
-const Init = ({ level, service, name, version, projectId, keyFilename }) => {
+const Init = ({ level, serviceName, version, projectId, keyFilename }) => {
   let loggingWinston = null;
   if (projectId && keyFilename) {
     loggingWinston = new LoggingWinston({
       projectId: projectId,
       keyFilename,
       serviceContext: {
-        service,
+        service: serviceName,
         version: `${version}`
       }
     });
@@ -37,7 +37,7 @@ const Init = ({ level, service, name, version, projectId, keyFilename }) => {
     level,
     defaultMeta: { environment: process.env.NODE_ENV, version },
     format: combine(
-      label({ label: name }),
+      label({ label: serviceName }),
       timestamp(),
       myFormat
     ),
